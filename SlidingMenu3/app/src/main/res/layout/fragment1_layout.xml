@@ -11,32 +11,14 @@
         android:layout_alignParentStart="true" />
 
     <fragment
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:name="com.example.prabaths.inner.frgments.Image_Fragment"
-        android:id="@+id/fragment2"
-        android:layout_below="@+id/spinner"
-        android:layout_alignTop="@+id/spinner"
-        android:layout_marginTop="40dp"
-        android:layout_centerHorizontal="true" />
-
-    <fragment
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:name="com.example.prabaths.inner.frgments.Vehicle_Details_Fragment"
         android:id="@+id/fragment3"
         android:layout_marginTop="45dp"
-        android:layout_below="@+id/fragment2"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Add new image"
-        android:id="@+id/button"
-        android:layout_below="@+id/fragment2"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/spinner"
+        android:layout_alignTop="@+id/spinner" />
 
 </RelativeLayout>
