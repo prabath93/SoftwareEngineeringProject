@@ -1,5 +1,6 @@
 package com.example.prabaths.slidingmenu3;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
@@ -10,8 +11,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.example.prabaths.Adapter.NavListAdapter;
 import com.example.prabaths.Fragments.About;
@@ -30,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     ListView nav_list;
     List<NavItem> navItemList;
     List<Fragment> fragmentList;
+    private static ImageView iv;
 
     ActionBarDrawerToggle actionBarDrawerToggle;
 
@@ -88,8 +93,62 @@ public class MainActivity extends AppCompatActivity {
 
         drawerLayout.setDrawerListener(actionBarDrawerToggle);
 
+       // iv=(ImageView)findViewById(R.id.profPicImView);
+        int v=R.id.changeProfileBtn;
+
+        //Button btn1=(Button)findViewById(R.id.changeProfileBtn);
+       // Toast.makeText(MainActivity.this,btn1.toString(), Toast.LENGTH_SHORT).show();
+        /*btn1.setOnClickListener(
+                new View.OnClickListener(){
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent= new Intent();
+                        intent.setType("image/*");
+                        intent.setAction(Intent.ACTION_PICK);
+                        //Toast.makeText(this, "insidedddd111", Toast.LENGTH_LONG).show();
+                        startActivityForResult(intent, 20);
+                        //iv.setImageURI(intent.getData());
+                        //Toast.makeText(getActivity(), iv.toString(), Toast.LENGTH_LONG).show();
+                    }
+                });*/
     }
 
+
+   /* @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        if(resultCode== RESULT_OK){
+            if(requestCode==20){
+
+                iv.setImageURI(data.getData());
+                //Toast.makeText(getActivity(),"success",Toast.LENGTH_LONG).show();
+            }
+        }
+        super.onActivityResult(requestCode, resultCode, data);
+    }*/
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+
+        Button btn1=(Button)findViewById(R.id.changeProfileBtn);
+
+        if(resultCode==RESULT_OK){
+
+                ImageView iv=(ImageView)findViewById(R.id.profPicImView);
+
+                iv.setImageURI(data.getData());
+                Toast.makeText(MainActivity.this,data.getData().toString(), Toast.LENGTH_SHORT).show();
+
+        }
+
+        super.onActivityResult(requestCode,resultCode,data);
+        for (Fragment fragment : getSupportFragmentManager().getFragments()) {
+            Toast.makeText(MainActivity.this, "inside main", Toast.LENGTH_LONG).show();
+            fragment.onActivityResult(requestCode, resultCode, data);
+        }
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -118,4 +177,5 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
 }

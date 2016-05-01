@@ -13,6 +13,7 @@ import android.widget.TabHost;
 
 import com.example.prabaths.Adapter.MyPagerAdapter;
 import com.example.prabaths.inner.frgments.Add_Vehicle_Fragment;
+import com.example.prabaths.inner.frgments.Edit_Vehicle_Details;
 import com.example.prabaths.inner.frgments.Fragment1;
 import com.example.prabaths.inner.frgments.Fragment2;
 import com.example.prabaths.inner.frgments.Fragment3;
@@ -81,7 +82,7 @@ public class About extends Fragment implements ViewPager.OnPageChangeListener,Ta
         List<Fragment> list=new ArrayList<Fragment>();
         list.add(new Add_Vehicle_Fragment());
         list.add(new Login());
-        list.add(new Fragment3());
+        list.add(new Edit_Vehicle_Details());
         list.add(new Fragment1());
         list.add(new Fragment2());
         list.add(new Fragment3());

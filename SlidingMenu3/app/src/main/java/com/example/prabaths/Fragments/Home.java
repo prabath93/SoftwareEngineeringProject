@@ -12,6 +12,9 @@ import android.widget.HorizontalScrollView;
 import android.widget.TabHost;
 
 import com.example.prabaths.Adapter.MyPagerAdapter;
+import com.example.prabaths.inner.frgments.Add_Fuel_Refill_Fragment;
+import com.example.prabaths.inner.frgments.Add_Other_Expense_Fragment;
+import com.example.prabaths.inner.frgments.Edit_Profile_Fragment;
 import com.example.prabaths.inner.frgments.Fragment1;
 import com.example.prabaths.inner.frgments.Fragment2;
 import com.example.prabaths.inner.frgments.Fragment3;
@@ -79,9 +82,9 @@ public class Home extends Fragment implements ViewPager.OnPageChangeListener,Tab
 
         List<Fragment> list=new ArrayList<Fragment>();
         list.add(new Fragment1());
-        list.add(new Fragment2());
-        list.add(new Fragment3());
-        list.add(new Fragment1());
+        list.add(new Add_Fuel_Refill_Fragment());
+        list.add(new Add_Other_Expense_Fragment());
+        list.add(new Edit_Profile_Fragment());
         list.add(new Fragment2());
         list.add(new Fragment3());
 
