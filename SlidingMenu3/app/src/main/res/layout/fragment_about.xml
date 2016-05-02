@@ -18,7 +18,7 @@
         <fragment
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:name="com.example.prabaths.inner.frgments.Fragment1"
+            android:name="com.example.prabaths.inner.frgments.View_Vehicle_For_Home_Fragment"
             android:id="@+id/fragment"
             android:layout_marginLeft="59dp"
             />

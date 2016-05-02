@@ -9,16 +9,14 @@ import android.view.ViewGroup;
 
 import com.example.prabaths.slidingmenu3.R;
 
-
 /**
- * Created by prabath s on 3/31/2016.
+ * Created by prabath s on 5/2/2016.
  */
-public class Fragment1 extends Fragment {
+public class View_Profile_Fragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
-        View v=inflater.inflate(R.layout.fragment1_layout,container,false);
+        View v=inflater.inflate(R.layout.profile_fragment,container,false);
         return v;
     }
 }

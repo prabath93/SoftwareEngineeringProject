@@ -12,12 +12,11 @@ import android.widget.HorizontalScrollView;
 import android.widget.TabHost;
 
 import com.example.prabaths.Adapter.MyPagerAdapter;
+import com.example.prabaths.inner.frgments.Add_Fuel_Refill_Fragment;
+import com.example.prabaths.inner.frgments.Add_Other_Expense_Fragment;
 import com.example.prabaths.inner.frgments.Add_Vehicle_Fragment;
 import com.example.prabaths.inner.frgments.Edit_Vehicle_Details;
-import com.example.prabaths.inner.frgments.Fragment1;
-import com.example.prabaths.inner.frgments.Fragment2;
-import com.example.prabaths.inner.frgments.Fragment3;
-import com.example.prabaths.inner.frgments.Login;
+import com.example.prabaths.inner.frgments.Vehicle_Details_Fragment;
 import com.example.prabaths.slidingmenu3.R;
 
 import java.util.ArrayList;
@@ -26,7 +25,7 @@ import java.util.List;
 /**
  * Created by prabath s on 3/31/2016.
  */
-public class About extends Fragment implements ViewPager.OnPageChangeListener,TabHost.OnTabChangeListener{
+public class Expenses_Fragment extends Fragment implements ViewPager.OnPageChangeListener,TabHost.OnTabChangeListener{
     ViewPager viewPager;
     TabHost tabHost;
     private MyPagerAdapter myPagerAdapter;
@@ -64,7 +63,7 @@ public class About extends Fragment implements ViewPager.OnPageChangeListener,Ta
 
         tabHost= (TabHost) v.findViewById(R.id.tabHost);
         tabHost.setup();
-        String[] tabNames={"Tab1","Tab2","Tab3","Tab4","Tab5","Tab6"};
+        String[] tabNames={"Fuel Expense","Other Expense"};
         for(int k=0;k<tabNames.length;k++){
             TabHost.TabSpec tabSpec;
             tabSpec=tabHost.newTabSpec(tabNames[k]);
@@ -76,16 +75,11 @@ public class About extends Fragment implements ViewPager.OnPageChangeListener,Ta
         tabHost.setOnTabChangedListener(this);
     }
 
-
     private void initViewPager() {
 
         List<Fragment> list=new ArrayList<Fragment>();
-        list.add(new Add_Vehicle_Fragment());
-        list.add(new Login());
-        list.add(new Edit_Vehicle_Details());
-        list.add(new Fragment1());
-        list.add(new Fragment2());
-        list.add(new Fragment3());
+        list.add(new Add_Fuel_Refill_Fragment());
+        list.add(new Add_Other_Expense_Fragment());
 
         this.myPagerAdapter = new MyPagerAdapter(getChildFragmentManager(),list);
         this.viewPager=(ViewPager) v.findViewById(R.id.view_pager);

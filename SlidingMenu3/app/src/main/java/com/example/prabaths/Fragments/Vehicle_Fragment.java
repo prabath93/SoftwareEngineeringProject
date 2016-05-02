@@ -12,13 +12,9 @@ import android.widget.HorizontalScrollView;
 import android.widget.TabHost;
 
 import com.example.prabaths.Adapter.MyPagerAdapter;
-import com.example.prabaths.inner.frgments.Add_Fuel_Refill_Fragment;
-import com.example.prabaths.inner.frgments.Add_Other_Expense_Fragment;
-import com.example.prabaths.inner.frgments.Edit_Profile_Fragment;
-import com.example.prabaths.inner.frgments.Log_Fragment;
-import com.example.prabaths.inner.frgments.View_Vehicle_For_Home_Fragment;
-import com.example.prabaths.inner.frgments.Fragment2;
-import com.example.prabaths.inner.frgments.Fragment3;
+import com.example.prabaths.inner.frgments.Add_Vehicle_Fragment;
+import com.example.prabaths.inner.frgments.Edit_Vehicle_Details;
+import com.example.prabaths.inner.frgments.Vehicle_Details_Fragment;
 import com.example.prabaths.slidingmenu3.R;
 
 import java.util.ArrayList;
@@ -27,8 +23,7 @@ import java.util.List;
 /**
  * Created by prabath s on 3/31/2016.
  */
-public class Home extends Fragment implements ViewPager.OnPageChangeListener,TabHost.OnTabChangeListener{
-
+public class Vehicle_Fragment extends Fragment implements ViewPager.OnPageChangeListener,TabHost.OnTabChangeListener{
     ViewPager viewPager;
     TabHost tabHost;
     private MyPagerAdapter myPagerAdapter;
@@ -66,7 +61,7 @@ public class Home extends Fragment implements ViewPager.OnPageChangeListener,Tab
 
         tabHost= (TabHost) v.findViewById(R.id.tabHost);
         tabHost.setup();
-        String[] tabNames={"Vehicle Details","Log"};
+        String[] tabNames={"View","Add","Edit"};
         for(int k=0;k<tabNames.length;k++){
             TabHost.TabSpec tabSpec;
             tabSpec=tabHost.newTabSpec(tabNames[k]);
@@ -78,12 +73,12 @@ public class Home extends Fragment implements ViewPager.OnPageChangeListener,Tab
         tabHost.setOnTabChangedListener(this);
     }
 
-
     private void initViewPager() {
 
         List<Fragment> list=new ArrayList<Fragment>();
-        list.add(new View_Vehicle_For_Home_Fragment());
-        list.add(new Log_Fragment());
+        list.add(new Vehicle_Details_Fragment());
+        list.add(new Add_Vehicle_Fragment());
+        list.add(new Edit_Vehicle_Details());
 
         this.myPagerAdapter = new MyPagerAdapter(getChildFragmentManager(),list);
         this.viewPager=(ViewPager) v.findViewById(R.id.view_pager);

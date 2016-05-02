@@ -31,7 +31,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginLeft="5dp"
-                android:background="@drawable/me"
+                android:background="@drawable/logo1"
                 >
             </ImageView>
             <LinearLayout
@@ -44,7 +44,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Phone"
+                    android:text="Travel Buddy"
                     android:textStyle="bold"
                     android:textColor="#fff"
                     android:textSize="18sp"
@@ -53,10 +53,10 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="PTIT"
+                    android:text="Automated Fuel management System"
                     android:textStyle="bold"
                     android:textColor="#fff"
-                    android:textSize="16sp"
+                    android:textSize="10sp"
                     android:layout_marginLeft="8dp"
                     />
             </LinearLayout>

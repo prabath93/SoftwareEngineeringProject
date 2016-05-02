@@ -1,14 +1,15 @@
 package com.example.prabaths.models;
 
 /**
- * Created by prabath s on 3/31/2016.
+ * Created by prabath s on 5/2/2016.
  */
-public class NavItem  implements Item{
+public class SectionItem implements Item{
+
     private String title;
     private String subTitle;
     private int resIcon;
 
-    public NavItem(int resIcon, String subTitle, String title) {
+    public SectionItem(int resIcon, String subTitle, String title) {
         this.resIcon = resIcon;
         this.subTitle = subTitle;
         this.title = title;
@@ -37,8 +38,8 @@ public class NavItem  implements Item{
     public void setTitle(String title) {
         this.title = title;
     }
-
-    public boolean isSection(){
-        return false;
+    @Override
+    public boolean isSection() {
+        return true;
     }
 }

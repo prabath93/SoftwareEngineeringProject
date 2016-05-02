@@ -18,10 +18,20 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.example.prabaths.Adapter.NavListAdapter;
-import com.example.prabaths.Fragments.About;
+import com.example.prabaths.Fragments.Expenses_Fragment;
 import com.example.prabaths.Fragments.Home;
-import com.example.prabaths.Fragments.Settings;
+import com.example.prabaths.Fragments.Personal_Fragment;
+import com.example.prabaths.Fragments.Vehicle_Fragment;
+import com.example.prabaths.inner.frgments.Add_Fuel_Refill_Fragment;
+import com.example.prabaths.inner.frgments.Add_Other_Expense_Fragment;
+import com.example.prabaths.inner.frgments.Add_Vehicle_Fragment;
+import com.example.prabaths.inner.frgments.Edit_Profile_Fragment;
+import com.example.prabaths.inner.frgments.Edit_Vehicle_Details;
+import com.example.prabaths.inner.frgments.Vehicle_Details_Fragment;
+import com.example.prabaths.inner.frgments.View_Profile_Fragment;
+import com.example.prabaths.models.Item;
 import com.example.prabaths.models.NavItem;
+import com.example.prabaths.models.SectionItem;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
     RelativeLayout drawerPane;
     RelativeLayout profile_box;
     ListView nav_list;
-    List<NavItem> navItemList;
+    List<Item> navItemList;
     List<Fragment> fragmentList;
     private static ImageView iv;
 
@@ -43,21 +53,44 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        navItemList=new ArrayList<NavItem>();
+        //SQLiteHelper sqLiteHelper=SQLiteHelper.getInstance(this);
+
+
+        navItemList=new ArrayList<Item>();
         drawerLayout =(DrawerLayout)findViewById(R.id.drawer_layout);
         drawerPane=(RelativeLayout)findViewById(R.id.drawer_pane);
         nav_list=(ListView)findViewById(R.id.nav_list);
+
         navItemList.add(new NavItem(R.drawable.home, "Home page", "Home"));
-        navItemList.add(new NavItem(R.drawable.settings, "Settings page", "Settings"));
-        navItemList.add(new NavItem(R.drawable.about, "About page", "About"));
+        navItemList.add(new SectionItem(R.drawable.ball,"","----- Expenses ----"));
+        navItemList.add(new NavItem(R.drawable.fuel, "", "Add Fuel Refill"));
+        navItemList.add(new NavItem(R.drawable.money, "", "Add Other Expense"));
+        navItemList.add(new SectionItem(R.drawable.ball,"","----- Vehicle ----"));
+        navItemList.add(new NavItem(R.drawable.view_car, "", "View Vehicle Detail"));
+        navItemList.add(new NavItem(R.drawable.edit, "", "Edit Vehicle Details"));
+        navItemList.add(new NavItem(R.drawable.add, "", "Add Vehicle"));
+        navItemList.add(new SectionItem(R.drawable.ball, "", "----- Personal ----"));
+        navItemList.add(new NavItem(R.drawable.profile, "", "View Profile"));
+        navItemList.add(new NavItem(R.drawable.edit, "", "Edit Profile"));
+
+
 
         NavListAdapter navListAdapter=new NavListAdapter(getApplicationContext(),R.layout.item_nav_list,navItemList);
         nav_list.setAdapter(navListAdapter);
 
         fragmentList=new ArrayList<>();
         fragmentList.add(new Home());
-        fragmentList.add(new Settings());
-        fragmentList.add(new About());
+        fragmentList.add(new Expenses_Fragment());
+        fragmentList.add(new Add_Fuel_Refill_Fragment());
+        fragmentList.add(new Add_Other_Expense_Fragment());
+        fragmentList.add(new Vehicle_Fragment());
+        fragmentList.add(new Vehicle_Details_Fragment());
+        fragmentList.add(new Edit_Vehicle_Details());
+        fragmentList.add(new Add_Vehicle_Fragment());
+        fragmentList.add(new Personal_Fragment());
+        fragmentList.add(new View_Profile_Fragment());
+        fragmentList.add(new Edit_Profile_Fragment());
+        //fragmentList.add(new Vehicle_Fragment());
         FragmentManager fragmentManager= getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.main_content,fragmentList.get(0)).commit();
         setTitle(navItemList.get(0).getTitle());
@@ -136,18 +169,23 @@ public class MainActivity extends AppCompatActivity {
 
         if(resultCode==RESULT_OK){
 
-                ImageView iv=(ImageView)findViewById(R.id.profPicImView);
 
+            if(requestCode==262145){
+                ImageView iv=(ImageView)findViewById(R.id.profPicImView);
+                iv.setImageResource(0);
                 iv.setImageURI(data.getData());
-                Toast.makeText(MainActivity.this,data.getData().toString(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivity.this, String.valueOf(requestCode).toString(), Toast.LENGTH_SHORT).show();}
+            if(requestCode==65566) {
+                ImageView iv=(ImageView)findViewById(R.id.vehiclePicImView);
+                iv.setImageResource(0);
+                iv.setImageURI(data.getData());
+                Toast.makeText(MainActivity.this, String.valueOf(requestCode).toString(), Toast.LENGTH_SHORT).show();
+            }
 
         }
 
         super.onActivityResult(requestCode,resultCode,data);
-        for (Fragment fragment : getSupportFragmentManager().getFragments()) {
-            Toast.makeText(MainActivity.this, "inside main", Toast.LENGTH_LONG).show();
-            fragment.onActivityResult(requestCode, resultCode, data);
-        }
+
     }
 
     @Override

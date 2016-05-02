@@ -68,7 +68,7 @@ public class Edit_Profile_Fragment extends Fragment{
                         intent.setType("image/*");
                         intent.setAction(Intent.ACTION_GET_CONTENT);
                         Toast.makeText(getActivity(), getActivity().toString(), Toast.LENGTH_LONG).show();
-                        startActivityForResult(Intent.createChooser(intent,"Select Image"), 20);
+                        startActivityForResult(Intent.createChooser(intent,"Select Image"), 1);
 
                         //iv.setImageURI(intent.getData());
                         Toast.makeText(getActivity(), iv.toString(), Toast.LENGTH_LONG).show();
@@ -89,8 +89,8 @@ public class Edit_Profile_Fragment extends Fragment{
         Toast.makeText(getActivity(),"success",Toast.LENGTH_LONG).show();
 
         if(resultCode== Activity.RESULT_OK){
-            if(requestCode==20){
-
+            if(requestCode==1){
+                iv.setImageResource(0);
                 iv.setImageURI(data.getData());
                 Toast.makeText(getActivity(),"success",Toast.LENGTH_LONG).show();
             }
