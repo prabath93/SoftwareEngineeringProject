@@ -41,6 +41,7 @@ public class InstantDataDAO {
                 InstantDataContract.InstantDataEntry.COLUMN_NAME_DATE,
                 InstantDataContract.InstantDataEntry.COLUMN_NAME_USER_NAME,
                 InstantDataContract.InstantDataEntry.COLUMN_NAME_REGNO,
+                InstantDataContract.InstantDataEntry.COLUMN_NAME_PARTIAL_TANK
 
         };
         String sortOrder = InstantDataContract.InstantDataEntry.COLUMN_NAME_REGNO;
@@ -60,7 +61,8 @@ public class InstantDataDAO {
                     c.getString(c.getColumnIndex(InstantDataContract.InstantDataEntry.COLUMN_NAME_REGNO)),
                     c.getDouble(c.getColumnIndex(InstantDataContract.InstantDataEntry.COLUMN_NAME_UNIT_PRICE)),
                     date,
-                    c.getDouble(c.getColumnIndex(InstantDataContract.InstantDataEntry.COLUMN_NAME_FINAL_ODOMETER_READING))
+                    c.getDouble(c.getColumnIndex(InstantDataContract.InstantDataEntry.COLUMN_NAME_FINAL_ODOMETER_READING)),
+                    c.getInt(c.getColumnIndex(InstantDataContract.InstantDataEntry.COLUMN_NAME_PARTIAL_TANK))
                     );
 
             results.add(idata);
@@ -85,7 +87,8 @@ public class InstantDataDAO {
                 InstantDataContract.InstantDataEntry.COLUMN_NAME_REGNO,
                 InstantDataContract.InstantDataEntry.COLUMN_NAME_UNIT_PRICE,
                 InstantDataContract.InstantDataEntry.COLUMN_NAME_DATE,
-                InstantDataContract.InstantDataEntry.COLUMN_NAME_FINAL_ODOMETER_READING
+                InstantDataContract.InstantDataEntry.COLUMN_NAME_FINAL_ODOMETER_READING,
+                InstantDataContract.InstantDataEntry.COLUMN_NAME_PARTIAL_TANK
         };
         String sortOrder = InstantDataContract.InstantDataEntry.COLUMN_NAME_USER_NAME+ " DESC";
         Cursor c = db.query(InstantDataContract.InstantDataEntry.TABLE_NAME, projection,  InstantDataContract.InstantDataEntry.COLUMN_NAME_REGNO+"= '"+ Home_Fragment.regNo+"' and "+ InstantDataContract.InstantDataEntry.COLUMN_NAME_USER_NAME+"= '"+ MainActivity.userName+"'",null,null,null,sortOrder,null);
@@ -96,7 +99,9 @@ public class InstantDataDAO {
                     c.getString(c.getColumnIndex(InstantDataContract.InstantDataEntry.COLUMN_NAME_REGNO)),
                     c.getDouble(c.getColumnIndex(InstantDataContract.InstantDataEntry.COLUMN_NAME_UNIT_PRICE)),
                     date,
-                    c.getDouble(c.getColumnIndex(InstantDataContract.InstantDataEntry.COLUMN_NAME_FINAL_ODOMETER_READING)));
+                    c.getDouble(c.getColumnIndex(InstantDataContract.InstantDataEntry.COLUMN_NAME_FINAL_ODOMETER_READING)),
+                    c.getInt(c.getColumnIndex(InstantDataContract.InstantDataEntry.COLUMN_NAME_PARTIAL_TANK))
+            );
 
             return  idata;
         }
@@ -123,6 +128,7 @@ public class InstantDataDAO {
         values.put(InstantDataContract.InstantDataEntry.COLUMN_NAME_DATE,date);
         values.put(InstantDataContract.InstantDataEntry.COLUMN_NAME_UNIT_PRICE,idata.getUnitPrice());
         values.put(InstantDataContract.InstantDataEntry.COLUMN_NAME_FINAL_ODOMETER_READING,idata.getOdometerReading());
+        values.put(InstantDataContract.InstantDataEntry.COLUMN_NAME_PARTIAL_TANK,idata.getPartialTank());
 
 
 
@@ -145,6 +151,7 @@ public class InstantDataDAO {
         values.put(InstantDataContract.InstantDataEntry.COLUMN_NAME_DATE,date);
         values.put(InstantDataContract.InstantDataEntry.COLUMN_NAME_UNIT_PRICE,idata.getUnitPrice());
         values.put(InstantDataContract.InstantDataEntry.COLUMN_NAME_FINAL_ODOMETER_READING,idata.getOdometerReading());
+        values.put(InstantDataContract.InstantDataEntry.COLUMN_NAME_PARTIAL_TANK,idata.getPartialTank());
         // values.put(VehicleContract.VehicleEntry.COLUMN_NAME_MODEL,model);
 
         db.update(InstantDataContract.InstantDataEntry.TABLE_NAME, values, InstantDataContract.InstantDataEntry.COLUMN_NAME_USER_NAME + "= '" + idata.getUserName() + "' and " + InstantDataContract.InstantDataEntry.COLUMN_NAME_REGNO + "= '" + idata.getRegNo() + "'", null);

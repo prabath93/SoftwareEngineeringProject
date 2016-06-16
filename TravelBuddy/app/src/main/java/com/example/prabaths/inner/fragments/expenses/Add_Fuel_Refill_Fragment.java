@@ -109,7 +109,7 @@ public class Add_Fuel_Refill_Fragment extends Fragment {
             } catch (ParseException e) {
                 e.printStackTrace();
             }
-            InstantData instantData=new InstantData(MainActivity.userName,Home_Fragment.regNo,0.0,date1,0.0);
+            InstantData instantData=new InstantData(MainActivity.userName,Home_Fragment.regNo,0.0,date1,0.0,0);
             instantDataDAO.addInstantData(instantData);
             try {
                 idata=instantDataDAO.getInstantDataByUserName();
@@ -369,25 +369,35 @@ public class Add_Fuel_Refill_Fragment extends Fragment {
 
 
                 } else {
+
                     partialTank = 0;
+                    //Check whether previous refilling was full tank or partial tank
+                    if(idata.getPartialTank()==0){
+                        //check whether odometer reading is available in instant data
                     if (idata.getOdometerReading() != 0) {
                         double distance;
+                        //check whether the date is prior to the last refill date
                         if (idata.getDate().before(date)) {
                             distance = Double.parseDouble(odometerReadingTxt.getText().toString()) - idata.getOdometerReading();
                         }
-                        else if(idata.getDate().after(date)){
+                        //or else check whether date is after the last refilling date
+                        else if (idata.getDate().after(date)) {
                             distance = idata.getOdometerReading() - Double.parseDouble(odometerReadingTxt.getText().toString());
                         }
+                        //or else check whether the date is equal to the last refilling date
                         else {
                             distance = Double.parseDouble(odometerReadingTxt.getText().toString()) - idata.getOdometerReading();
                         }
+                        //check whether if the calculated distance is positive
                         if (distance > 0) {
                             economy = distance / Double.parseDouble(volTxt.getText().toString());
                         }
-                        else{
-                            validOdometerReading=false;
+                        //if the calculated distance is negative the given odometer reading should be false
+                        else {
+                            validOdometerReading = false;
                             showAlertDialog("Invalid odometer reading!!!");
                         }
+                    }
                         //Toast.makeText(getContext(), "Economy: ("+odometerReadingTxt.getText().toString()+"-"+distance+")/"+volTxt.getText(), Toast.LENGTH_SHORT).show();
                     }
 
@@ -400,6 +410,7 @@ public class Add_Fuel_Refill_Fragment extends Fragment {
                     idata.setDate(date);
                     idata.setOdometerReading(Double.parseDouble(odometerReadingTxt.getText().toString()));
                     idata.setUnitPrice(Double.parseDouble(unitPriceTxt.getText().toString()));
+                    idata.setPartialTank(partialTank);
                     instantDataDAO.updateInstantData(idata);
                     InsertToDB insertToDB = new InsertToDB(getContext());
                     insertToDB.insertFuelExpenseReport(fuelExpense);
@@ -494,7 +505,11 @@ public class Add_Fuel_Refill_Fragment extends Fragment {
                 return false;
             }
             try{
-                Double.parseDouble(totalCostTxt.getText().toString());
+                double totCost=Double.parseDouble(totalCostTxt.getText().toString());
+                if(totCost!=Double.parseDouble(unitPriceTxt.getText().toString())*Double.parseDouble(volTxt.getText().toString())){
+                    showAlertDialog("Invalid total cost!!!\n total cost should be equal to (unit price) * (quantity)");
+                }
+
 
             }
             catch (java.lang.NumberFormatException e){

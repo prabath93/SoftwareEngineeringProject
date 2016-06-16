@@ -11,13 +11,15 @@ public class InstantData {
     private String regNo;
     private String userName;
     private double odometerReading;
+    private int partialTank;
 
-    public InstantData(String userName, String regNo, double unitPrice, Date date,double odometerReading) {
+    public InstantData(String userName, String regNo, double unitPrice, Date date,double odometerReading,int partialTank) {
         this.regNo = regNo;
         this.date = date;
         this.unitPrice = unitPrice;
         this.userName = userName;
         this.odometerReading=odometerReading;
+        this.partialTank=partialTank;
     }
 
 
@@ -60,5 +62,13 @@ public class InstantData {
 
     public void setUserName(String userName) {
         this.userName = userName;
+    }
+
+    public int getPartialTank() {
+        return partialTank;
+    }
+
+    public void setPartialTank(int partialTank) {
+        this.partialTank = partialTank;
     }
 }

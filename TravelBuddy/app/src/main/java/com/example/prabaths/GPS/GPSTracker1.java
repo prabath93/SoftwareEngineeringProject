@@ -136,7 +136,7 @@ public class GPSTracker1 extends Service implements GoogleApiClient.ConnectionCa
         LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, this);
 
 
-        Toast.makeText(mContext,"Connected",Toast.LENGTH_LONG).show();
+        //Toast.makeText(mContext,"Connected",Toast.LENGTH_LONG).show();
         mLastLocation = LocationServices.FusedLocationApi.getLastLocation(
                 mGoogleApiClient);
         //Toast.makeText(mContext,String.valueOf(mLastLocation.getLatitude()),Toast.LENGTH_LONG).show();

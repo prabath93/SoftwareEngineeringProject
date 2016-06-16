@@ -139,8 +139,6 @@ public class GPSTracker extends Service implements LocationListener {
                         int a=0;
 
 
-
-                            System.out.println(location);
                             location = locationManager
                                     .getLastKnownLocation(LocationManager.PASSIVE_PROVIDER);
                             if (location != null) {

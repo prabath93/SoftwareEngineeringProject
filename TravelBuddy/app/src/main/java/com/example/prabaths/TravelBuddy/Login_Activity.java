@@ -226,10 +226,10 @@ public class Login_Activity extends AppCompatActivity {
 
                 CopyImageForSignUp copyImage=new CopyImageForSignUp();
                 try {
-                    Toast.makeText(this,"copying image",Toast.LENGTH_LONG).show();
+
                     newUri=copyImage.copyFile(data.getData());
                 } catch (IOException e) {
-                    Toast.makeText(this,"copying failed",Toast.LENGTH_LONG).show();
+
                     e.printStackTrace();
                 }
                 profPicImView.setImageURI(newUri);
@@ -358,10 +358,22 @@ public class Login_Activity extends AppCompatActivity {
             UserDAO userDAO=new UserDAO(this);
 
             userDAO.addUser(user);
+            clearSignUpDialog();
 
 
 
         }
+    }
+
+    private void clearSignUpDialog(){
+        nameTxt.setText("");
+        nicTxt.setText("");
+        emailTxt.setText("");
+        telNoTxt.setText("");
+        userName.setText("");
+        passwordEditTxt.setText("");
+        passwordConfirmTxt.setText("");
+
     }
 
     /**

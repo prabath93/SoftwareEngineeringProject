@@ -54,6 +54,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
                     "CREATE TABLE IF NOT EXISTS " + InstantDataContract.InstantDataEntry.TABLE_NAME +
                             " (" + InstantDataContract.InstantDataEntry.COLUMN_NAME_UNIT_PRICE + " DECIMAL(10,2) ,"+
                             InstantDataContract.InstantDataEntry.COLUMN_NAME_DATE+ " DATE , "+
+                            InstantDataContract.InstantDataEntry.COLUMN_NAME_PARTIAL_TANK+ " INTEGER , "+
                             InstantDataContract.InstantDataEntry.COLUMN_NAME_REGNO+ " VARCHAR(20)  NOT NULL, "+
                             InstantDataContract.InstantDataEntry.COLUMN_NAME_USER_NAME+" VARCHAR(20) NOT NULL," +
                             InstantDataContract.InstantDataEntry.COLUMN_NAME_FINAL_ODOMETER_READING+" VARCHAR(20)  )"

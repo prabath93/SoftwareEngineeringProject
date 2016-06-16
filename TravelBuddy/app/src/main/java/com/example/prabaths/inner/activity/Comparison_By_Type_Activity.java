@@ -65,7 +65,7 @@ public class Comparison_By_Type_Activity extends AppCompatActivity{
 
             }
             else{
-                totalCost=totalCost+1;
+                totalCost=totalCost+expense.getCost();
                 otherCost=otherCost+expense.getCost();
             }
 

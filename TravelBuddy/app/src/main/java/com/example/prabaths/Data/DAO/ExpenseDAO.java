@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.widget.Toast;
 
 import com.example.prabaths.Data.ExpenseContract;
 import com.example.prabaths.Data.SQLiteHelper;
@@ -56,6 +57,7 @@ public class ExpenseDAO {
         values.put(ExpenseContract.ExpenseEntry.COLUMN_NAME_ECONOMY,fuelExpense.getEconomy());
 
         db.insert(ExpenseContract.ExpenseEntry.TABLE_NAME,null,values);
+        Toast.makeText(context,"Fuel record added successfully!!!",Toast.LENGTH_LONG).show();
     }
 
     /**
@@ -81,6 +83,7 @@ public class ExpenseDAO {
         values.put(ExpenseContract.ExpenseEntry.COLUMN_NAME_NOTES,expense.getNotes());
 
         db.insert(ExpenseContract.ExpenseEntry.TABLE_NAME,null,values);
+        Toast.makeText(context,"Expense record added successfully",Toast.LENGTH_LONG).show();
     }
 
 

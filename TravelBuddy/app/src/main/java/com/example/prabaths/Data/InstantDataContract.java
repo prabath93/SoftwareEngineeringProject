@@ -20,6 +20,7 @@ public final class InstantDataContract {
         public static final String COLUMN_NAME_REGNO = "reg_no";
         public static final String COLUMN_NAME_DATE = "date";
         public static final String COLUMN_NAME_FINAL_ODOMETER_READING="odometer_reading";
+        public static final String COLUMN_NAME_PARTIAL_TANK="partial_tank";
 
     }
 }

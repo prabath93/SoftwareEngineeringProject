@@ -201,7 +201,6 @@ public class GetFromDB {
             @Override
             public void onErrorResponse(VolleyError error) {
 
-                Toast.makeText(context,error.toString(),Toast.LENGTH_LONG).show();
 
             }
         }) {

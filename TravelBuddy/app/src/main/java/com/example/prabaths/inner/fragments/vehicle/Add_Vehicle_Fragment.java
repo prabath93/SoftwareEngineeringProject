@@ -29,6 +29,7 @@ import com.example.prabaths.inner.fragments.home.View_Vehicle_For_Home_Fragment;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 /**
  * Created by prabath s on 5/1/2016.
@@ -44,6 +45,7 @@ public class Add_Vehicle_Fragment extends Fragment{
     public static String imageUri;
     private MainActivity mainActivity;
     private Spinner spinner;
+    int currentYear;
 
     @Nullable
     @Override
@@ -52,6 +54,7 @@ public class Add_Vehicle_Fragment extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View v=inflater.inflate(R.layout.add_vehicle_details_fragment,container,false);
+        currentYear=Calendar.getInstance().get(Calendar.YEAR);
         vehicleDAO=new VehicleDAO(this.getContext());
         Button btn1=(Button) v.findViewById(R.id.addVehicleBtn);
         regNoTxt=(EditText) v.findViewById(R.id.regNoTxt);
@@ -178,12 +181,22 @@ public class Add_Vehicle_Fragment extends Fragment{
         }
         else if(!yearTxt.getText().toString().equals("")){
             try{
-                Integer.parseInt(yearTxt.getText().toString());
+                int givenYear=Integer.parseInt(yearTxt.getText().toString());
+                if(yearTxt.getText().length()!=4){
+                    showAlertDialog("Invalid year!!! \nYear should consist of 4 digits. eg:1996");
+                    return false;
+                }
+                if(givenYear>currentYear){
+                    showAlertDialog("Invalid year!!! \nFuture year cannot be given.");
+                    return false;
+                }
+
             }
             catch (NumberFormatException e){
                 showAlertDialog("Invalid year");
                 return false;
             }
+
         }
         //else if(yearTxt.getText().toString().)
         return true;

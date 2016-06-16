@@ -77,7 +77,7 @@ public class Comparison_By_Model_Activity extends AppCompatActivity {
 
             }
             else{
-                totalCost=totalCost+1;
+                totalCost=totalCost+expense.getCost();
                 otherCost=otherCost+expense.getCost();
             }
 

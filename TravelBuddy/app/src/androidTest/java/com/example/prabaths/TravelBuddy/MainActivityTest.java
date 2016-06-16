@@ -53,198 +53,210 @@ public class MainActivityTest {
 
     @Test
     public void testGenerated() {
+
         
-	// Click at LinearLayout with child index 1 of parent with id android.R.id.tabs
-onView(nthChildOf(withId(android.R.id.tabs), 1)).perform(click());
+        // Click at LinearLayout with child index 1 of parent with id android.R.id.tabs
+        onView(nthChildOf(withId(android.R.id.tabs), 1)).perform(click());
 
-	// Select page 1 in ViewPager with id R.id.view_pager
-onView(withId(R.id.view_pager)).perform(selectViewPagerPage(1));
-
-	// Click at ImageButton with child index 1 of parent with id R.id.action_bar
-onView(nthChildOf(withId(R.id.action_bar), 1)).perform(click());
-
-	// Click at item with value 'com.example.prabaths.models.NavItem@421717c8' in ListView
-	// see details at http://droidtestlab.com/adapterView.html
-        onData(anything()) // We are using the position so don't need to specify a data matcher
-                .inAdapterView(withId(R.id.nav_list)) // Specify the explicit id of the ListView
-                .atPosition(0) // Explicitly specify the adapter item to use
-                .perform(click());
+        // Select page 1 in ViewPager with id R.id.view_pager
+        onView(withId(R.id.view_pager)).perform(selectViewPagerPage(1));
 
         // Click at ImageButton with child index 1 of parent with id R.id.action_bar
-onView(nthChildOf(withId(R.id.action_bar), 1)).perform(click());
+        onView(nthChildOf(withId(R.id.action_bar), 1)).perform(click());
 
-	// Click at item with value 'com.example.prabaths.models.SectionItem@42171d28' in ListView
-	// see details at http://droidtestlab.com/adapterView.html
-        onData(anything()) // We are using the position so don't need to specify a data matcher
-                .inAdapterView(withId(R.id.nav_list)) // Specify the explicit id of the ListView
-                .atPosition(1) // Explicitly specify the adapter item to use
-                .perform(click());
+        // Click at item with value 'com.example.prabaths.models.NavItem@421717c8' in ListView
+        // see details at http://droidtestlab.com/adapterView.html
+            onData(anything()) // We are using the position so don't need to specify a data matcher
+                    .inAdapterView(withId(R.id.nav_list)) // Specify the explicit id of the ListView
+                    .atPosition(0) // Explicitly specify the adapter item to use
+                    .perform(click());
 
-        // Click at AppCompatButton with id android.R.id.button3
-onView(withId(android.R.id.button3)).perform(click());
+            // Click at ImageButton with child index 1 of parent with id R.id.action_bar
+            onView(nthChildOf(withId(R.id.action_bar), 1)).perform(click());
 
-	// Click at AppCompatButton with id android.R.id.button3
-onView(withId(android.R.id.button3)).perform(click());
+        // Click at item with value 'com.example.prabaths.models.SectionItem@42171d28' in ListView
+        // see details at http://droidtestlab.com/adapterView.html
+            onData(anything()) // We are using the position so don't need to specify a data matcher
+                    .inAdapterView(withId(R.id.nav_list)) // Specify the explicit id of the ListView
+                    .atPosition(1) // Explicitly specify the adapter item to use
+                    .perform(click());
 
-	// Click at LinearLayout with child index 1 of parent with id android.R.id.tabs
-onView(nthChildOf(withId(android.R.id.tabs), 1)).perform(click());
-
-	// Select page 1 in ViewPager with id R.id.view_pager
-onView(withId(R.id.view_pager)).perform(selectViewPagerPage(1));
-
-	// Click at ImageButton with child index 1 of parent with id R.id.action_bar
-onView(nthChildOf(withId(R.id.action_bar), 1)).perform(click());
-
-	// Click at item with value 'com.example.prabaths.models.NavItem@42171ec0' in ListView
-	// see details at http://droidtestlab.com/adapterView.html
-        onData(anything()) // We are using the position so don't need to specify a data matcher
-                .inAdapterView(withId(R.id.nav_list)) // Specify the explicit id of the ListView
-                .atPosition(2) // Explicitly specify the adapter item to use
-                .perform(click());
+            // Click at AppCompatButton with id android.R.id.button3
+        onView(withId(android.R.id.button3)).perform(click());
 
         // Click at AppCompatButton with id android.R.id.button3
-onView(withId(android.R.id.button3)).perform(click());
-
-	// Click at ImageButton with child index 1 of parent with id R.id.action_bar
-onView(nthChildOf(withId(R.id.action_bar), 1)).perform(click());
-
-	// Click at item with value 'com.example.prabaths.models.NavItem@42171f30' in ListView
-	// see details at http://droidtestlab.com/adapterView.html
-        onData(anything()) // We are using the position so don't need to specify a data matcher
-                .inAdapterView(withId(R.id.nav_list)) // Specify the explicit id of the ListView
-                .atPosition(3) // Explicitly specify the adapter item to use
-                .perform(click());
-
-        // Click at AppCompatButton with id android.R.id.button3
-onView(withId(android.R.id.button3)).perform(click());
-
-	// Click at ImageButton with child index 1 of parent with id R.id.action_bar
-onView(nthChildOf(withId(R.id.action_bar), 1)).perform(click());
-
-	// Swipe up at ListView with id R.id.nav_list
-onView(withId(R.id.nav_list)).perform(swipeUp());
-
-	// Click at item with value 'com.example.prabaths.models.SectionItem@42171f98' in ListView
-	// see details at http://droidtestlab.com/adapterView.html
-        onData(anything()) // We are using the position so don't need to specify a data matcher
-                .inAdapterView(withId(R.id.nav_list)) // Specify the explicit id of the ListView
-                .atPosition(4) // Explicitly specify the adapter item to use
-                .perform(click());
+        onView(withId(android.R.id.button3)).perform(click());
 
         // Click at LinearLayout with child index 1 of parent with id android.R.id.tabs
-onView(nthChildOf(withId(android.R.id.tabs), 1)).perform(click());
+        onView(nthChildOf(withId(android.R.id.tabs), 1)).perform(click());
 
-	// Select page 1 in ViewPager with id R.id.view_pager
-onView(withId(R.id.view_pager)).perform(selectViewPagerPage(1));
-
-	// Click at LinearLayout with child index 2 of parent with id android.R.id.tabs
-onView(nthChildOf(withId(android.R.id.tabs), 2)).perform(click());
-
-	// Select page 2 in ViewPager with id R.id.view_pager
-onView(withId(R.id.view_pager)).perform(selectViewPagerPage(2));
-
-	// Click at ImageButton with child index 1 of parent with id R.id.action_bar
-onView(nthChildOf(withId(R.id.action_bar), 1)).perform(click());
-
-	// Click at item with value 'com.example.prabaths.models.NavItem@42172008' in ListView
-	// see details at http://droidtestlab.com/adapterView.html
-        onData(anything()) // We are using the position so don't need to specify a data matcher
-                .inAdapterView(withId(R.id.nav_list)) // Specify the explicit id of the ListView
-                .atPosition(5) // Explicitly specify the adapter item to use
-                .perform(click());
+        // Select page 1 in ViewPager with id R.id.view_pager
+        onView(withId(R.id.view_pager)).perform(selectViewPagerPage(1));
 
         // Click at ImageButton with child index 1 of parent with id R.id.action_bar
-onView(nthChildOf(withId(R.id.action_bar), 1)).perform(click());
+        onView(nthChildOf(withId(R.id.action_bar), 1)).perform(click());
 
-	// Click at item with value 'com.example.prabaths.models.NavItem@42172080' in ListView
-	// see details at http://droidtestlab.com/adapterView.html
-        onData(anything()) // We are using the position so don't need to specify a data matcher
-                .inAdapterView(withId(R.id.nav_list)) // Specify the explicit id of the ListView
-                .atPosition(6) // Explicitly specify the adapter item to use
-                .perform(click());
+        // Click at item with value 'com.example.prabaths.models.NavItem@42171ec0' in ListView
+        // see details at http://droidtestlab.com/adapterView.html
+            onData(anything()) // We are using the position so don't need to specify a data matcher
+                    .inAdapterView(withId(R.id.nav_list)) // Specify the explicit id of the ListView
+                    .atPosition(2) // Explicitly specify the adapter item to use
+                    .perform(click());
 
-        // Swipe down at ScrollView with id R.id.scrollView3
-onView(withId(R.id.scrollView3)).perform(swipeDown());
-
-	// Click at ImageButton with child index 1 of parent with id R.id.action_bar
-onView(nthChildOf(withId(R.id.action_bar), 1)).perform(click());
-
-	// Click at item with value 'com.example.prabaths.models.NavItem@421720f8' in ListView
-	// see details at http://droidtestlab.com/adapterView.html
-        onData(anything()) // We are using the position so don't need to specify a data matcher
-                .inAdapterView(withId(R.id.nav_list)) // Specify the explicit id of the ListView
-                .atPosition(7) // Explicitly specify the adapter item to use
-                .perform(click());
+            // Click at AppCompatButton with id android.R.id.button3
+        onView(withId(android.R.id.button3)).perform(click());
 
         // Click at ImageButton with child index 1 of parent with id R.id.action_bar
-onView(nthChildOf(withId(R.id.action_bar), 1)).perform(click());
+        onView(nthChildOf(withId(R.id.action_bar), 1)).perform(click());
 
-	// Swipe up at ListView with id R.id.nav_list
-onView(withId(R.id.nav_list)).perform(swipeUp());
+        // Click at item with value 'com.example.prabaths.models.NavItem@42171f30' in ListView
+        // see details at http://droidtestlab.com/adapterView.html
+            onData(anything()) // We are using the position so don't need to specify a data matcher
+                    .inAdapterView(withId(R.id.nav_list)) // Specify the explicit id of the ListView
+                    .atPosition(3) // Explicitly specify the adapter item to use
+                    .perform(click());
 
-	// Click at item with value 'com.example.prabaths.models.SectionItem@42172318' in ListView
-	// see details at http://droidtestlab.com/adapterView.html
+            // Click at AppCompatButton with id android.R.id.button3
+        onView(withId(android.R.id.button3)).perform(click());
+
+        // Click at ImageButton with child index 1 of parent with id R.id.action_bar
+        onView(nthChildOf(withId(R.id.action_bar), 1)).perform(click());
+
+        // Swipe up at ListView with id R.id.nav_list
+        onView(withId(R.id.nav_list)).perform(swipeUp());
+
+        // Click at item with value 'com.example.prabaths.models.SectionItem@42171f98' in ListView
+        // see details at http://droidtestlab.com/adapterView.html
+            onData(anything()) // We are using the position so don't need to specify a data matcher
+                    .inAdapterView(withId(R.id.nav_list)) // Specify the explicit id of the ListView
+                    .atPosition(4) // Explicitly specify the adapter item to use
+                    .perform(click());
+
+            // Click at LinearLayout with child index 1 of parent with id android.R.id.tabs
+        onView(nthChildOf(withId(android.R.id.tabs), 1)).perform(click());
+
+        // Select page 1 in ViewPager with id R.id.view_pager
+        onView(withId(R.id.view_pager)).perform(selectViewPagerPage(1));
+
+        // Click at LinearLayout with child index 2 of parent with id android.R.id.tabs
+        onView(nthChildOf(withId(android.R.id.tabs), 2)).perform(click());
+
+        // Select page 2 in ViewPager with id R.id.view_pager
+        onView(withId(R.id.view_pager)).perform(selectViewPagerPage(2));
+
+        // Click at ImageButton with child index 1 of parent with id R.id.action_bar
+        onView(nthChildOf(withId(R.id.action_bar), 1)).perform(click());
+
+        // Click at item with value 'com.example.prabaths.models.NavItem@42172008' in ListView
+        // see details at http://droidtestlab.com/adapterView.html
+            onData(anything()) // We are using the position so don't need to specify a data matcher
+                    .inAdapterView(withId(R.id.nav_list)) // Specify the explicit id of the ListView
+                    .atPosition(5) // Explicitly specify the adapter item to use
+                    .perform(click());
+
+            // Click at ImageButton with child index 1 of parent with id R.id.action_bar
+        onView(nthChildOf(withId(R.id.action_bar), 1)).perform(click());
+
+        // Click at item with value 'com.example.prabaths.models.NavItem@42172080' in ListView
+        // see details at http://droidtestlab.com/adapterView.html
+            onData(anything()) // We are using the position so don't need to specify a data matcher
+                    .inAdapterView(withId(R.id.nav_list)) // Specify the explicit id of the ListView
+                    .atPosition(6) // Explicitly specify the adapter item to use
+                    .perform(click());
+
+            // Swipe down at ScrollView with id R.id.scrollView3
+        onView(withId(R.id.scrollView3)).perform(swipeDown());
+
+        // Click at ImageButton with child index 1 of parent with id R.id.action_bar
+        onView(nthChildOf(withId(R.id.action_bar), 1)).perform(click());
+
+        // Click at item with value 'com.example.prabaths.models.NavItem@421720f8' in ListView
+        // see details at http://droidtestlab.com/adapterView.html
+            onData(anything()) // We are using the position so don't need to specify a data matcher
+                    .inAdapterView(withId(R.id.nav_list)) // Specify the explicit id of the ListView
+                    .atPosition(7) // Explicitly specify the adapter item to use
+                    .perform(click());
+
+            // Click at ImageButton with child index 1 of parent with id R.id.action_bar
+        onView(nthChildOf(withId(R.id.action_bar), 1)).perform(click());
+
+        // Swipe up at ListView with id R.id.nav_list
+        onView(withId(R.id.nav_list)).perform(swipeUp());
+
+        // Click at item with value 'com.example.prabaths.models.SectionItem@42172318' in ListView
+        // see details at http://droidtestlab.com/adapterView.html
+            onData(anything()) // We are using the position so don't need to specify a data matcher
+                    .inAdapterView(withId(R.id.nav_list)) // Specify the explicit id of the ListView
+                    .atPosition(12) // Explicitly specify the adapter item to use
+                    .perform(click());
+
+            // Click at LinearLayout with child index 1 of parent with id android.R.id.tabs
+        onView(nthChildOf(withId(android.R.id.tabs), 1)).perform(click());
+
+        // Select page 1 in ViewPager with id R.id.view_pager
+        onView(withId(R.id.view_pager)).perform(selectViewPagerPage(1));
+
+        // Click at ImageButton with child index 1 of parent with id R.id.action_bar
+        onView(nthChildOf(withId(R.id.action_bar), 1)).perform(click());
+
+        // Click at item with value 'com.example.prabaths.models.NavItem@421723f0' in ListView
+        // see details at http://droidtestlab.com/adapterView.html
+            onData(anything()) // We are using the position so don't need to specify a data matcher
+                    .inAdapterView(withId(R.id.nav_list)) // Specify the explicit id of the ListView
+                    .atPosition(13) // Explicitly specify the adapter item to use
+                    .perform(click());
+            // Click at LinearLayout with child index 1 of parent with id android.R.id.tabs
+        onView(nthChildOf(withId(android.R.id.tabs), 1)).perform(click());
+
+        // Select page 1 in ViewPager with id R.id.view_pager
+        onView(withId(R.id.view_pager)).perform(selectViewPagerPage(1));
+
+        // Click at ImageButton with child index 1 of parent with id R.id.action_bar
+        onView(nthChildOf(withId(R.id.action_bar), 1)).perform(click());
+
+        // Swipe up at ListView with id R.id.nav_list
+        onView(withId(R.id.nav_list)).perform(swipeUp());
+
+        // Click at item with value 'com.example.prabaths.models.NavItem@42172450' in ListView
+        // see details at http://droidtestlab.com/adapterView.html
+            onData(anything()) // We are using the position so don't need to specify a data matcher
+                    .inAdapterView(withId(R.id.nav_list)) // Specify the explicit id of the ListView
+                    .atPosition(14) // Explicitly specify the adapter item to use
+                    .perform(click());
+
+            // Click at LinearLayout with child index 1 of parent with id android.R.id.tabs
+        onView(nthChildOf(withId(android.R.id.tabs), 1)).perform(click());
+
+        // Select page 1 in ViewPager with id R.id.view_pager
+        onView(withId(R.id.view_pager)).perform(selectViewPagerPage(1));
+
+        // Click at LinearLayout with child index 2 of parent with id android.R.id.tabs
+        onView(nthChildOf(withId(android.R.id.tabs), 2)).perform(click());
+
+        // Select page 2 in ViewPager with id R.id.view_pager
+        onView(withId(R.id.view_pager)).perform(selectViewPagerPage(2));
+
+        // Select page 1 in ViewPager with id R.id.view_pager
+        onView(withId(R.id.view_pager)).perform(selectViewPagerPage(1));
+
+        // Select page 0 in ViewPager with id R.id.view_pager
+        onView(withId(R.id.view_pager)).perform(selectViewPagerPage(0));
+
+        // Click at ImageButton with child index 1 of parent with id R.id.action_bar
+        onView(nthChildOf(withId(R.id.action_bar), 1)).perform(click());
+
+        // Swipe up at ListView with id R.id.nav_list
+        onView(withId(R.id.nav_list)).perform(swipeUp());
+
+        // Click at item with value 'com.example.prabaths.models.NavItem@42172450' in ListView
+        // see details at http://droidtestlab.com/adapterView.html
         onData(anything()) // We are using the position so don't need to specify a data matcher
                 .inAdapterView(withId(R.id.nav_list)) // Specify the explicit id of the ListView
-                .atPosition(12) // Explicitly specify the adapter item to use
+                .atPosition(15) // Explicitly specify the adapter item to use
                 .perform(click());
 
-        // Click at LinearLayout with child index 1 of parent with id android.R.id.tabs
-onView(nthChildOf(withId(android.R.id.tabs), 1)).perform(click());
 
-	// Select page 1 in ViewPager with id R.id.view_pager
-onView(withId(R.id.view_pager)).perform(selectViewPagerPage(1));
 
-	// Click at ImageButton with child index 1 of parent with id R.id.action_bar
-onView(nthChildOf(withId(R.id.action_bar), 1)).perform(click());
-
-	// Click at item with value 'com.example.prabaths.models.NavItem@421723f0' in ListView
-	// see details at http://droidtestlab.com/adapterView.html
-        onData(anything()) // We are using the position so don't need to specify a data matcher
-                .inAdapterView(withId(R.id.nav_list)) // Specify the explicit id of the ListView
-                .atPosition(13) // Explicitly specify the adapter item to use
-                .perform(click());
-        // Click at LinearLayout with child index 1 of parent with id android.R.id.tabs
-onView(nthChildOf(withId(android.R.id.tabs), 1)).perform(click());
-
-	// Select page 1 in ViewPager with id R.id.view_pager
-onView(withId(R.id.view_pager)).perform(selectViewPagerPage(1));
-
-	// Click at ImageButton with child index 1 of parent with id R.id.action_bar
-onView(nthChildOf(withId(R.id.action_bar), 1)).perform(click());
-
-	// Swipe up at ListView with id R.id.nav_list
-onView(withId(R.id.nav_list)).perform(swipeUp());
-
-	// Click at item with value 'com.example.prabaths.models.NavItem@42172450' in ListView
-	// see details at http://droidtestlab.com/adapterView.html
-        onData(anything()) // We are using the position so don't need to specify a data matcher
-                .inAdapterView(withId(R.id.nav_list)) // Specify the explicit id of the ListView
-                .atPosition(14) // Explicitly specify the adapter item to use
-                .perform(click());
-
-        // Click at LinearLayout with child index 1 of parent with id android.R.id.tabs
-onView(nthChildOf(withId(android.R.id.tabs), 1)).perform(click());
-
-	// Select page 1 in ViewPager with id R.id.view_pager
-onView(withId(R.id.view_pager)).perform(selectViewPagerPage(1));
-
-	// Click at LinearLayout with child index 2 of parent with id android.R.id.tabs
-onView(nthChildOf(withId(android.R.id.tabs), 2)).perform(click());
-
-	// Select page 2 in ViewPager with id R.id.view_pager
-onView(withId(R.id.view_pager)).perform(selectViewPagerPage(2));
-
-	// Select page 1 in ViewPager with id R.id.view_pager
-onView(withId(R.id.view_pager)).perform(selectViewPagerPage(1));
-
-	// Select page 0 in ViewPager with id R.id.view_pager
-onView(withId(R.id.view_pager)).perform(selectViewPagerPage(0));
-
-	// Click at ImageButton with child index 1 of parent with id R.id.action_bar
-onView(nthChildOf(withId(R.id.action_bar), 1)).perform(click());
-
-	// Swipe down at ListView with id R.id.nav_list
 
     }
 

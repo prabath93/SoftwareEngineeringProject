@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
+import android.widget.Toast;
 
 import com.example.prabaths.Data.InstantDataContract;
 import com.example.prabaths.Data.SQLiteHelper;
@@ -50,6 +51,7 @@ public class VehicleDAO {
 
         db.insert(VehicleContract.VehicleEntry.TABLE_NAME,null,values);
 
+        Toast.makeText(context,"Vehicle added successfully!!!",Toast.LENGTH_LONG).show();
     }
 
 
@@ -268,6 +270,10 @@ public class VehicleDAO {
        // values.put(VehicleContract.VehicleEntry.COLUMN_NAME_MODEL,model);
 
         db.update(VehicleContract.VehicleEntry.TABLE_NAME, values, VehicleContract.VehicleEntry.COLUMN_NAME_USER_ID + "= '" + userName + "' and " + VehicleContract.VehicleEntry.COLUMN_NAME_REGISTRATION_NO + "= '" + regNo + "'", null);
+        Home_Fragment.model=model;
+        Home_Fragment.type_of_vechicle=type;
+        Home_Fragment.regNo=regNo;
+        Toast.makeText(context,"Changes were made successfully",Toast.LENGTH_LONG).show();
     }
 
 }

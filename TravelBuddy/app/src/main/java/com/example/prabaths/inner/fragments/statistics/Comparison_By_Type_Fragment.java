@@ -67,7 +67,7 @@ public class Comparison_By_Type_Fragment extends Fragment {
 
             }
             else{
-                totalCost=totalCost+1;
+                totalCost=totalCost+expense.getCost();
                 otherCost=otherCost+expense.getCost();
             }
 

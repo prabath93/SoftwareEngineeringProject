@@ -30,6 +30,7 @@ import com.example.prabaths.inner.fragments.home.View_Vehicle_For_Home_Fragment;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 /**
  * Created by prabath s on 5/1/2016.
@@ -48,6 +49,7 @@ public class Edit_Vehicle_Details_Fragment extends Fragment {
     private static Button changeVehicleImageBtn;
     private static ImageView vehiclePicImView;
     private static VehicleDAO vehicleDAO;
+    private int currentYear;
 
 
 
@@ -76,6 +78,7 @@ public class Edit_Vehicle_Details_Fragment extends Fragment {
         vehiclePicImView=(ImageView) v.findViewById(R.id.vehiclePicImView2);
         changeVehicleImageBtn=(Button) v.findViewById(R.id.changeVehicleImageBtn2);
         vehicleDAO=new VehicleDAO(getContext());
+        currentYear= Calendar.getInstance().get(Calendar.YEAR);
         setUI();
         submitVehicleEdit.setOnClickListener(
                 new View.OnClickListener() {
@@ -119,6 +122,7 @@ public class Edit_Vehicle_Details_Fragment extends Fragment {
 
         if (isValidUI()) {
             vehicleDAO.updateVehicle(MainActivity.userName, Home_Fragment.regNo, modelEditTxt.getText().toString(), brandEditTxt.getText().toString(), Integer.parseInt(yearEditTxt.getText().toString()), spinner.getSelectedItem().toString());
+
         }
 
     }
@@ -247,7 +251,15 @@ public class Edit_Vehicle_Details_Fragment extends Fragment {
         }
         else if(!yearEditTxt.getText().toString().equals("")){
             try{
-                Integer.parseInt(yearEditTxt.getText().toString());
+                int givenYear=Integer.parseInt(yearEditTxt.getText().toString());
+                if(yearEditTxt.getText().length()!=4){
+                    showAlertDialog("Invalid year!!! \nYear should consist of 4 digits. eg:1996");
+                    return false;
+                }
+                if(givenYear>currentYear){
+                    showAlertDialog("Invalid year!!! \nFuture year cannot be given.");
+                    return false;
+                }
             }
             catch (NumberFormatException e){
                 showAlertDialog("Invalid year");
