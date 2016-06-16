@@ -1,0 +1,2 @@
+include ':app', ':jasypt-1.9.2'
+
